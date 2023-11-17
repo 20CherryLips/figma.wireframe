@@ -2,7 +2,7 @@ const url_server = "http://localhost:3989";
 
 function cadastrar() {
     console.log('Enviando dados ao servidor...');
-    
+
     const dados = {
         nome: document.querySelector('[name="nome-pessoa"]').value,
         cpf: document.querySelector('[name="cpf"]').value,
@@ -34,3 +34,12 @@ function cadastrar() {
             // Trate os erros, se necessário
         });
 }
+
+function listarPessoas() {
+    fetch(`${url_server}/pessoas`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+}
+
